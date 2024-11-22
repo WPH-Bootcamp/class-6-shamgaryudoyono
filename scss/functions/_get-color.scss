@@ -2,6 +2,15 @@
 @use 'sass:map';
 
 @function get-color($type, $level) {
+  @if map.has-key($colors, $type) {
+    $color: map.get($colors, $type);
+    @if map.has-key($color, $level) {
+      @return map.get($color, $level);
+    }
+  }
+  @warn 'Invalid color type or level';
+  @return null;
+
   // add the logic here
   // use if else to check if the type and level are valid
   // if they are valid, return the color
