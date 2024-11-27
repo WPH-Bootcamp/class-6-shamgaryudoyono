@@ -7,9 +7,10 @@
     @if map.has-key($color, $level) {
       @return map.get($color, $level);
     }
+  } @else {
+    @warn 'Invalid color type or level';
+    @return null;
   }
-  @warn 'Invalid color type or level';
-  @return null;
 
   // add the logic here
   // use if else to check if the type and level are valid
